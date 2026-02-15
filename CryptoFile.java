@@ -4,9 +4,36 @@ import java.awt.event.*;
 import java.io.*;
 
 public class CryptoFile extends JFrame {
-
+	
+	private JLabel lblFile, lblResultado;
+	private JButton btnEncrypt, btnDecrypt;
+	
     public CryptoFile() {
+	
+		setLayout(null);
 
+        lblFile = new JLabel("Selecione um arquivo ...");
+        lblFile.setBounds(50, 50, 500, 40);
+        lblFile.setFont(new Font("Arial", Font.BOLD | Font.ITALIC, 16));
+        lblFile.setOpaque(true);
+        lblFile.setBackground(Color.WHITE);
+        add(lblFile);
+
+        lblResultado = new JLabel();
+        lblResultado.setBounds(50, 150, 500, 40);
+        lblResultado.setFont(new Font("Arial", Font.BOLD | Font.ITALIC, 16));
+        add(lblResultado);
+
+        btnEncrypt = new JButton("Criptografar");
+        btnEncrypt.setBounds(50, 100, 245, 40);
+        btnEncrypt.setFont(new Font("Arial", Font.BOLD, 18));
+        add(btnEncrypt);
+
+        btnDecrypt = new JButton("Descriptografar");
+        btnDecrypt.setBounds(305, 100, 245, 40);
+        btnDecrypt.setFont(new Font("Arial", Font.BOLD, 18));
+        add(btnDecrypt);
+	
     }
 
     public static void main(String args[]) {
