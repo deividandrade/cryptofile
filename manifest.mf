@@ -1,0 +1,4 @@
+Manifest-Version: 1.0
+Created-By: Deivid Andrade
+Main-Class: CryptoFile
+X-COMMENT: Aplicação para criptografia segura de arquivos. Finalidade: Privacidade de dados e proteção contra acesso não autorizado.
