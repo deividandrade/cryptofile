@@ -2,6 +2,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 import java.io.*;
+import classes.Criptografia;
 
 public class CryptoFile extends JFrame {
 	
@@ -40,12 +41,47 @@ public class CryptoFile extends JFrame {
         btnEncrypt.setBounds(50, 100, 245, 40);
         btnEncrypt.setFont(new Font("Arial", Font.BOLD, 18));
         add(btnEncrypt);
+		btnEncrypt.addActionListener(
+			new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					if(Criptografia.encrypt(lblFile.getText())){
+
+						lblResultado.setText("Arquivo criptografado com sucesso!!!");
+						lblResultado.setForeground(Color.BLUE);
+
+					}else{
+
+						lblResultado.setText("Arquivo não criptografado");
+						lblResultado.setForeground(Color.RED);
+
+					}
+	
+				}
+			}
+		);
 
         btnDecrypt = new JButton("Descriptografar");
         btnDecrypt.setBounds(305, 100, 245, 40);
         btnDecrypt.setFont(new Font("Arial", Font.BOLD, 18));
         add(btnDecrypt);
+		btnDecrypt.addActionListener(
+			new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					if(Criptografia.decrypt(lblFile.getText())){
+
+						lblResultado.setText("Arquivo descriptografado com sucesso!!!");
+						lblResultado.setForeground(Color.BLUE);
+
+					}else{
+
+						lblResultado.setText("Arquivo não descriptografado");
+						lblResultado.setForeground(Color.RED);
+
+					}
 	
+				}
+			}
+		);
     }
 
     public static void main(String args[]) {
