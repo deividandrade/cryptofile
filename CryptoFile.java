@@ -18,6 +18,18 @@ public class CryptoFile extends JFrame {
         lblFile.setOpaque(true);
         lblFile.setBackground(Color.WHITE);
         add(lblFile);
+		lblFile.addMouseListener(
+			new MouseAdapter() {
+				public void mouseClicked(MouseEvent e) {
+					JFileChooser fileChooser = new JFileChooser();
+					int result = fileChooser.showOpenDialog(null);
+
+					if (result == JFileChooser.APPROVE_OPTION) {
+						lblFile.setText(fileChooser.getSelectedFile().getAbsolutePath());
+					}
+				}
+			}
+		);
 
         lblResultado = new JLabel();
         lblResultado.setBounds(50, 150, 500, 40);
@@ -39,7 +51,6 @@ public class CryptoFile extends JFrame {
     public static void main(String args[]) {
 
         CryptoFile form = new CryptoFile();
-        form.setLayout(null);
         form.setBounds(0, 0, 600, 300);
         form.setLocationRelativeTo(null);
         form.setVisible(true);
